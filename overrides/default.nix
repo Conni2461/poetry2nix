@@ -877,6 +877,7 @@ lib.composeManyExtensions [
             "0.2.6" = "sha256-l9W9+KDg/43mc0toEz1n1pqw+oQdiHdAxGlS+KLIGhw=";
             "0.3.0" = "sha256-icBjtW8fZjT3mLo43nKWdirMz6GZIy/RghEO95pHJEU=";
             "0.3.1" = "sha256-EKK+RxkJ//fY43EjvN1Fry7mn2ZLIaNlTyKPJRxyKZs=";
+            "1.0.0" = "sha256-WN94xuPNw0ZhkFpwbzqX14emcuwJNlvtl3IHGCkQ5gE=";
           }.${version};
           sha256 = getRepoHash super.granian.version;
         in
@@ -889,6 +890,9 @@ lib.composeManyExtensions [
           };
           cargoDeps = pkgs.rustPlatform.importCargoLock {
             lockFile = "${src.out}/Cargo.lock";
+            outputHashes = {
+              "pyo3-asyncio-0.20.0" = "sha256-GiwowX1xCBnnylDWW0mNfb6hlkn4xJK7RtUSg+NWRhk=";
+            };
           };
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
             pkgs.rustPlatform.cargoSetupHook
